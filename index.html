@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Layout</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: lightgreen; /* Changed body color to light green */
+    }
+    header {
+      height: 2cm;
+      background-color: lightblue;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      position: relative;
+    }
+    header nav ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
+    header nav ul li {
+      margin-right: 20px;
+      position: relative;
+    }
+    header nav ul li ul {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: #f9f9f9;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+    header nav ul li:hover ul {
+      display: block;
+    }
+    header nav ul li ul li {
+      padding: 10px;
+    }
+    .news-bar {
+      position: absolute;
+      top: 100%;
+      width: 100%;
+      background-color: #ccccff;
+      color: #000;
+      padding: 10px;
+      font-size: 1.1rem;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+    .news-bar span {
+      display: inline-block;
+      padding-left: 100%;
+      animation: scroll-news 20s linear infinite; /* Changed scroll speed to 20s */
+    }
+    @keyframes scroll-news {
+      from {
+        transform: translateX(100%);
+      }
+      to {
+        transform: translateX(-100%);
+      }
+    }
+    #content {
+      display: flex;
+      margin-top: 2cm;
+    }
+    .sidebar {
+      width: 2cm;
+      background-color: lightblue;
+      padding: 1cm 0;
+    }
+    .sidebar ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+    .sidebar ul li {
+      margin-bottom: 1cm;
+      padding: 10px;
+      background-color: #d0d0d0;
+    }
+    .main-content {
+      flex-grow: 1;
+      padding: 1cm;
+      background-color: lightgreen; /* Changed the main content background color to light green */
+    }
+    .banner {
+      position: relative;
+      text-align: center;
+      padding: 2cm;
+      margin: 1cm 0;
+      font-size: 1.5rem;
+      overflow: hidden; /* Ensures any overflow from video is hidden */
+    }
+    .banner video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%; /* Ensures video covers full width */
+      height: 100%; /* Ensures video covers full height */
+      object-fit: cover; /* Keeps the aspect ratio intact while covering the area */
+      z-index: -1; /* Places the video behind the text */
+    }
+    footer {
+      background-color: #e0e0e0;
+      padding: 1cm;
+      text-align: center;
+    }
+    footer p {
+      margin: 5px 0;
+    }
+    .login-form {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .login-form input {
+      margin: 5px;
+      padding: 8px;
+      width: 200px;
+    }
+    .login-form button {
+      margin-top: 10px;
+      padding: 10px 20px;
+      background-color: lightblue;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li>Home</li>
+        <li>
+          E Learning
+          <ul>
+            <li>
+              Elementary
+              <ul>
+                <li>Grade 1</li>
+                <li>Grade 2</li>
+                <li>Grade 3</li>
+                <li>Grade 4</li>
+                <li>Grade 5</li>
+                <li>Grade 6</li>
+              </ul>
+            </li>
+            <li>
+              Intermediate
+              <ul>
+                <li>Grade 1</li>
+                <li>Grade 2</li>
+                <li>Grade 3</li>
+              </ul>
+            </li>
+            <li>
+              Secondary
+              <ul>
+                <li>Grade 1</li>
+                <li>Grade 2</li>
+                <li>Grade 3</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li>Registration</li>
+        <li>Teachers Gateway</li>
+        <li>About Us</li>
+        <li>Vision and Mission</li>
+      </ul>
+    </nav>
+    <div class="news-bar">
+      <span>Breaking News: Our school has been awarded the best educational institution of the year! &nbsp; | &nbsp; Registration for the new academic year is open! &nbsp; | &nbsp; Upcoming Parent-Teacher Meeting on Friday.</span>
+    </div>
+  </header>
+  <div id="content">
+    <div class="sidebar">
+      <ul>
+        <li>Section 1</li>
+        <li>Section 2</li>
+        <li>Section 3</li>
+        <li>Section 4</li>
+        <li>Section 5</li>
+      </ul>
+    </div>
+    <div class="main-content">
+      <!-- Main content goes here -->
+    </div>
+    <div class="sidebar">
+      <ul>
+        <li>Section 1</li>
+        <li>Section 2</li>
+        <li>Section 3</li>
+        <li>Section 4</li>
+        <li>Section 5</li>
+      </ul>
+    </div>
+  </div>
+  <div class="banner">
+    Welcome to Our School's Online Platform! Join us for a brighter future.
+    <br>
+    <video autoplay loop muted>
+      <source src="/mnt/data/child.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+  <footer>
+    <p>Contact us: (123) 456-7890</p>
+    <p>Email: info@school.com</p>
+    <p>Address: 123 Education Lane, Knowledge City</p>
+    <div class="login-form">
+      <h2>Login</h2>
+      <input type="text" id="username" placeholder="Username">
+      <input type="password" id="password" placeholder="Password">
+      <button onclick="login()">Login</button>
+    </div>
+  </footer>
+  <script>
+    const users = {
+      "Ibrahim Ali": "password1",
+      "Yasser Osama": "password2",
+      "Ehab Saad": "password3"
+    };
+
+    function login() {
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+
+      if (users[username] === password) {
+        alert('Login successful');
+      } else {
+        alert('Invalid username or password');
+      }
+    }
+  </script>
+</body>
+</html>

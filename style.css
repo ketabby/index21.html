@@ -1,0 +1,18 @@
+.banner {
+  position: relative;
+  text-align: center;
+  padding: 2cm;
+  margin: 1cm 0;
+  font-size: 1.5rem;
+  overflow: hidden; /* Ensures any overflow from video is hidden */
+}
+
+.banner video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%; /* Ensures video covers full width */
+  height: 100%; /* Ensures video covers full height */
+  object-fit: cover; /* Keeps the aspect ratio intact while covering the area */
+  z-index: -1; /* Places the video behind the text */
+}
